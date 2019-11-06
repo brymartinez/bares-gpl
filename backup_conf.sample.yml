@@ -1,0 +1,63 @@
+###############################################################################
+#
+#                  Bares-GPL Sample Config File
+#
+###############################################################################
+
+mysql:
+  host: 127.0.0.1
+  # Database to back up
+  database: 
+  # MySql credentials (NOTE BELOW)
+  # IT IS ARGUABLY BETTER TO FILL OUT USERNAME AND PASSWORD USING ~/.my.cnf, but if you enjoy insecure environments, fill these out and they will be read.
+  # See https://easyengine.io/tutorials/mysql/mycnf-preference/ for more details.
+  #user: user
+  #password: abcd123
+  # Path (with trailing slash) to mysql commands e.g. mysqldump
+  bin_path: /usr/bin/
+  # If you are using MySql binary logging:
+  # Path to the binary logs, should match the log_bin option in your my.cnf.
+  # Comment out if you are not using mysql binary logging
+  bin_log: /var/log/mysql/mysql-bin
+
+s3:
+  # S3 credentials
+  access_key_id: AKIA1234567890ABCDEF
+  secret_access_key: 1234567890abcdefghijklmnopqrstuvwxyz+012
+  # Bucket in which to store your backups
+  bucket: my-test-bucket
+  # The prefix under which to store and retrieve backups for this server
+  #  e.g. my_app_name
+  prefix: my_app_name
+
+
+# Required - location of the files to be backed up (/var/www/html, for example)
+file_location: '/var/www/html'
+
+logging:
+    logfile_path: '/tmp/bares.log'
+
+slack:
+  # Set up a new webhook at https://slack.com/apps/
+  # Once configured, put the address here.
+  webhook: https://hooks.slack.com/services/<id>/<id>/sample-web-hook
+  # If you want to babysit your backups, set this true.
+  notify_on_success: true 
+  # A list of user ids of persons to @mention when posting success messages.
+  mention_users_on_failure:
+    - UA1234567
+    - UA1234568 
+  # Leave empty for none.
+  mention_users_on_success:
+    - UA1234567
+
+retention:
+  # How many hourly incremental backups to keep
+  incremental:
+    hours: 48 # Default: 48 hours
+  daily: 
+    days: 6 # Default: 6 days
+  weekly: 
+    weeks: 3 # Default: 3 weeks
+  monthly: 
+    months: 11 # Default: 11 months
