@@ -28,6 +28,13 @@ Borrows heavily from https://github.com/tylergannon/rtbackup, but is a node impl
  - After cloning this repository, you must issue 'npm install' on the folder so it can install all the required modules.
  - After editing the backup_conf.sample.yml to your liking (see [backup_conf.yml Configuration](#backup_conf.yml Configuration), you can have it read by the program automatically if you put it on `/etc/bares/backup_conf.yml`. Otherwise, it would have to be explicitly stated on each command being executed. See the [Usage](#Usage) section for more details.
 
+
+## Future Plans
+  - Remove callback hell.
+  - Allow folder backup if AWS S3 does not exist.
+  - Add JSDoc.
+
+
 ## Usage
 
 ### Scheduling
@@ -79,11 +86,6 @@ Borrows heavily from https://github.com/tylergannon/rtbackup, but is a node impl
    
    `-v`
    - Enable verbose debugging.
-
-## Future Plans
-  - Remove callback hell.
-  - Allow folder backup if AWS S3 is does not exist.
-  - Add JSDoc.
 
 ## Other Information
 
