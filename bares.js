@@ -112,11 +112,6 @@ const argv = yargs
     'Run incremental backup',
     backupOptions
   )
-  .command(
-    'sample',
-    'Run sample',
-    backupOptions
-  )
   .help()
   .alias('help', 'h')
   .argv;
